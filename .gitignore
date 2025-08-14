@@ -1,0 +1,36 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+*.whl
+*.tar.gz
+
+# Virtual environments
+venv/
+testenv/
+testenv2/
+testenv4/
+.env/
+
+# PyCharm / VSCode / IDE files
+.vscode/
+.idea/
+*.iml
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Storage (local or S3 configs if sensitive)
+aiblackbox/storage/*.py
+
+# Test caches
+tests/__pycache__/
