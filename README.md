@@ -1,5 +1,7 @@
 AiBlackBox
 
+Note: This project is very new! I’d love feedback, suggestions, and contributions as I continue building it. If you’re interested in helping improve AiBlackBox or adding new features, feel free to fork the repo, open issues, or submit pull requests.
+
 AiBlackBox is a universal logging and auditing system for AI and machine learning models. It acts like a “flight recorder” for AI, capturing inputs, outputs, parameters, and metadata of all monitored functions, objects, or classes. Designed for transparency, reproducibility, and debugging, it ensures that AI models are traceable, auditable, and compliant with ethical standards.
 
 Features
@@ -94,7 +96,7 @@ for entry in bb.replay():
 
 Contributing
 
-Contributions are welcome! Please fork the repository, create a feature branch, and submit a pull request.
+Contributions are welcome! Please fork the repository, create a feature branch, and submit a pull request. Feedback, suggestions, and collaboration ideas are highly encouraged as this project is still in its early stages.
 
 License
 
