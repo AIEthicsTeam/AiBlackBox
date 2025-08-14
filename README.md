@@ -1,10 +1,105 @@
-AI Ethics Institute – AIEthicsTeam
-The AI Ethics Institute empowers organizations to deploy AI responsibly by providing tools for transparency, accountability, and ethical alignment.
+AiBlackBox
 
-Phase 1 – AI Black Box:
-A universal monitoring system that records AI decisions — inputs, outputs, parameters, and metadata — enabling auditability, model drift detection, regulatory compliance, and stakeholder trust. Works across all major AI frameworks without modifying existing code.
+AiBlackBox is a universal logging and auditing system for AI and machine learning models. It acts like a “flight recorder” for AI, capturing inputs, outputs, parameters, and metadata of all monitored functions, objects, or classes. Designed for transparency, reproducibility, and debugging, it ensures that AI models are traceable, auditable, and compliant with ethical standards.
 
-Phase 2 – AI Ethics & Alignment:
-Expanding into ethical evaluation, bias audits, model behavior verification, and collaboration with policymakers and enterprises to ensure AI aligns with human values and ethical standards.
+Features
 
-Our vision is to make AI trustworthy, auditable, and ethically responsible for developers and society.
+Automatic logging of AI model actions
+Capture all inputs, outputs, parameters, and metadata in real-time.
+
+Function, object, class, and module patching
+Easily patch functions or entire modules to track behavior without modifying your original code.
+
+Flexible backends
+Use in-memory logging for testing or connect to persistent storage backends for long-term auditing.
+
+Serialization-safe
+Handles complex objects safely with customizable serializers.
+
+Replay and audit
+Inspect recorded actions to debug, audit, or verify model behavior.
+
+Supports AI frameworks out-of-the-box
+Designed to work with PyTorch, TensorFlow, scikit-learn, and other AI pipelines.
+
+Installation
+
+Install from PyPI:
+
+pip install aiblackbox
+
+
+For testing purposes, you can use TestPyPI:
+
+pip install --index-url https://test.pypi.org/simple/ aiblackbox
+
+Quick Start
+from aiblackbox import BlackBox
+
+# Initialize the BlackBox
+bb = BlackBox()
+
+# Log a simple event
+bb.log('prediction', {'input': [1,2,3], 'output': 0.95})
+
+# Replay logs
+for entry in bb.replay():
+    print(entry)
+
+Public API
+
+The following functions and classes are available for advanced usage:
+
+from aiblackbox import *
+
+# Function & object patching
+patch_function
+patch_object
+patch_module
+patch_class
+apply_generic_patches
+auto_patch_ai_functions
+
+# Logging and backends
+set_log_backend
+get_memory_backend
+LogBackend
+MemoryBackend
+
+# Serialization & safe logging
+safe_serialize
+register_custom_serializer
+set_max_depth
+get_and_clear_fallback_logs
+
+# Unpatching
+unpatch_object
+unpatch_all
+
+Example: Patching a Function
+from aiblackbox import BlackBox, patch_function
+
+def my_ai_model(x):
+    return x**2
+
+bb = BlackBox()
+patched_model = patch_function(my_ai_model, bb.log)
+
+# Call patched function
+result = patched_model(5)
+
+# Replay logs
+for entry in bb.replay():
+    print(entry)
+
+Contributing
+
+Contributions are welcome! Please fork the repository, create a feature branch, and submit a pull request.
+
+License
+
+Distributed under the MIT License. See LICENSE for details.
+
+About
+
+AI Ethics Institute — Our mission is to provide tools for AI transparency, auditability, and accountability, helping organizations build ethical AI systems.
